@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0px;
+    font-size: 50px;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.startBtn {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+   font-size: 20px;
+   padding: 5px;
+   margin-bottom: 20px;
+}

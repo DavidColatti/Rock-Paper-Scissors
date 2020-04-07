@@ -1,57 +1,67 @@
-let userChoice = prompt('Do You Choose Rock, Paper, or Scissors?');
-let computerChoice = Math.random();
+const startGame = () => {
+    document.querySelector("body > div.button > button").innerText = 'Play Again!'
 
+	// User Choice
+	let userChoice = prompt('Do You Choose Rock, Paper, or Scissors?');
+	userChoice = userChoice.toLowerCase();
 
-// User Choice
-if (!userChoice) {
-    document.querySelector(".userchoice").innerHTML = '<p>Stop Cheating and Choose Something Normal!</p>'
-} else {
-    document.querySelector(".userchoice").innerHTML = `<p>You Chose ${userChoice}</p>`
-}
+	if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+		document.querySelector('body > div.game > p.userchoice').innerText = `You Chose ${userChoice[0].toUpperCase() +
+			userChoice.slice(1)}`;
+	} else {
+		document.querySelector('body > div.game > p.userchoice').innerText = 'Please Input Valid Object';
+	}
 
-// Computer Choice
-if (computerChoice <= 0.34) {
-    computerChoice = 'Rock';
-} else if (computerChoice <= 0.67) {
-    computerChoice = 'Paper';
-} else {
-    computerChoice = 'Scissors';
-}
+	// Computer Choice
+	let computerChoice = Math.random();
+	if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+		if (computerChoice <= 0.34) {
+			computerChoice = 'rock';
+		} else if (computerChoice <= 0.67) {
+			computerChoice = 'paper';
+		} else {
+			computerChoice = 'scissors';
+		}
 
-document.querySelector(".computerchoice").innerHTML = `<p>The Computer Chooses ${computerChoice}</p>`
+		document.querySelector(
+			'body > div.game > p.computerchoice'
+		).innerText = `Computer Chooses ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`;
+	}
 
+	// COMPARE FUNCTION
 
-// Results
-let compare = (choice1,choice2) => {
-    if (choice1 === choice2) {
-        return "It's A Tie!";
-    }
+	let compare = (choice1, choice2) => {
+		if (choice1 === choice2) {
+			return "It's A Tie!";
+		}
 
-    if (choice1 === "Rock") {
-        if (choice2 === "Scissors") {
-            return `You Win!`;
-        } else {
-            return "You Lose!";
-        }
-    }
+		if (choice1 === 'rock') {
+			if (choice2 === 'scissors') {
+				return `You Win!`;
+			} else {
+				return 'You Lose!';
+			}
+		}
 
-    if (choice1 === "Paper") {
-        if (choice2 === "Rock") {
-            return "You Win!";
-        } else {
-            return "You Lose!";
-        }
-    }
+		if (choice1 === 'paper') {
+			if (choice2 === 'rock') {
+				return 'You Win!';
+			} else {
+				return 'You Lose!';
+			}
+		}
 
-    if (choice1 === "Scissors") {
-        if (choice2 === "Rock") {
-            return "You Lose!";
-        } else {
-            return "You Win!";
-        }
-    }
-}
+		if (choice1 === 'scissors') {
+			if (choice2 === 'rock') {
+				return 'You Lose!';
+			} else {
+				return 'You Win!';
+			}
+		}
+	};
 
-let results = compare(userChoice, computerChoice);
+	let results = compare(userChoice, computerChoice);
+	document.querySelector('body > div.game > p.results').innerText = `${results}`;
+};
 
-document.querySelector(".results").innerHTML = `<p>${results}</p>`
+document.querySelector("body > div.button > button").addEventListener('click', startGame);

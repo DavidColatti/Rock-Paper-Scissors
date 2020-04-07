@@ -25,7 +25,7 @@ const startGame = () => {
 
 		document.querySelector(
 			'body > div.game > p.computerchoice'
-		).innerText = `Computer Chooses ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`;
+		).innerText = `Your Opponent Chooses ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`;
 	}
 
 	// COMPARE FUNCTION
@@ -37,25 +37,25 @@ const startGame = () => {
 
 		if (choice1 === 'rock') {
 			if (choice2 === 'scissors') {
-				return `You Win!`;
+				return `You Win Using Rock!`;
 			} else {
-				return 'You Lose!';
+				return 'You Lose Using Rock!';
 			}
 		}
 
 		if (choice1 === 'paper') {
 			if (choice2 === 'rock') {
-				return 'You Win!';
+				return 'You Win Using Paper!';
 			} else {
-				return 'You Lose!';
+				return 'You Lose Using Paper!';
 			}
 		}
 
 		if (choice1 === 'scissors') {
 			if (choice2 === 'rock') {
-				return 'You Lose!';
+				return 'You Lose Using Scissors!';
 			} else {
-				return 'You Win!';
+				return 'You Win Using Scissors!';
 			}
 		}
 	};

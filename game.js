@@ -1,5 +1,5 @@
 const startGame = () => {
-    document.querySelector("body > div.button > button").innerText = 'Play Again!'
+	document.querySelector('body > div.button > button').innerText = 'Play Again!';
 
 	// User Choice
 	let userChoice = prompt('Do You Choose Rock, Paper, or Scissors?');
@@ -61,7 +61,9 @@ const startGame = () => {
 	};
 
 	let results = compare(userChoice, computerChoice);
-	document.querySelector('body > div.game > p.results').innerText = `${results}`;
+	if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+		document.querySelector('body > div.game > p.results').innerText = `${results}`;
+	}
 };
 
-document.querySelector("body > div.button > button").addEventListener('click', startGame);
+document.querySelector('body > div.button > button').addEventListener('click', startGame);
